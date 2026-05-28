@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Anonymity: no author/generator metadata, no external resources, not indexed during review. -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>PIVOT</title>
+  <!-- Inline data-URI favicon so the browser does not request /favicon.ico externally. -->
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================== Header ===================== -->
+  <header class="hero">
+    <div class="container">
+      <h1 class="title">PIVOT</h1>
+      <p class="subtitle">Policy Improvement via Trust-Region Optimization from Deployment Experience</p>
+      <p class="authors">Anonymous Author(s)</p>
+      <p class="venue">Under double-blind review</p>
+    </div>
+  </header>
+
+  <!-- ===================== Nav ===================== -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#abstract">Abstract</a>
+      <a href="#overview">Overview</a>
+      <a href="#tasks">Continuous Tasks</a>
+      <a href="#generalization">Generalization</a>
+      <a href="#results">Results</a>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- ===================== Teaser (4-task flash montage) ===================== -->
+    <section class="section" id="teaser">
+      <figure class="media">
+        <div class="placeholder" style="--ratio:16/9">
+          4-Tasks Flash Montage &nbsp;·&nbsp; assets/videos/teaser.mp4
+        </div>
+        <!-- Drop-in when ready:
+        <video src="assets/videos/teaser.mp4" autoplay muted loop playsinline preload="none"></video>
+        -->
+        <figcaption>
+          <strong>PIVOT</strong> iteratively post-trains a flow-based VLA from real-world deployment
+          experience &mdash; demonstrations, human corrections, and autonomous rollouts &mdash; into
+          consistent, monotonic gains across four precise, contact-rich bimanual manipulation tasks.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- ===================== Abstract ===================== -->
+    <section class="section" id="abstract">
+      <h2>Abstract</h2>
+      <p>
+        Post-training with real-world experience is critical for reliable deployment of robot
+        foundation models, but heterogeneous data from demonstrations, human corrections, and
+        autonomous rollouts are difficult to convert into stable policy updates. We present
+        <strong>PIVOT</strong>, an iterative real-world post-training system built on
+        <strong>Trust-Region Flow Matching Optimization (TRFO)</strong>. TRFO is a unified
+        policy-improvement objective that assigns signed advantages to individual transitions and
+        modulates the flow-matching loss accordingly: high-value behaviors are attracted, whereas
+        low-value behaviors are repelled within a trust region. At each iteration, we first collect
+        on-robot data using the current policy, estimate transition-level values via distributional
+        TD learning, and then apply TRFO to update the policy. The updated policy is subsequently
+        redeployed on the robot to gather the next round of experience, forming an iterative
+        post-training procedure. On a suite of precise, contact-rich bimanual manipulation tasks,
+        PIVOT yields consistent, monotonic gains over successive iterations, substantially improving
+        success rates and throughput across all evaluated tasks.
+      </p>
+      <p class="keywords">
+        <strong>Keywords:</strong> Real-World RL · Bimanual Manipulation · Post-Training
+      </p>
+    </section>
+
+    <!-- ===================== Overview / Main video ===================== -->
+    <section class="section" id="overview">
+      <h2>Overview</h2>
+      <p>
+        PIVOT closes a heterogeneous experience loop: a deployed policy collects autonomous rollouts
+        and HG-DAgger-style human corrections, every episode is labeled with only a sparse terminal
+        outcome, and a distributional value expert estimates a per-transition advantage. TRFO then
+        reduces to ordinary flow-matching imitation on expert data while inducing a trust-region
+        reinforcement-learning update on autonomous rollouts &mdash; pulling the policy toward
+        high-value actions and repelling it from low-value ones within a region around a frozen
+        reference. A training-free temporal alignment relaxation stitches action chunks into smooth,
+        jerk-free motion at deployment.
+      </p>
+      <figure class="media">
+        <div class="placeholder" style="--ratio:16/9">
+          Main Video &nbsp;·&nbsp; assets/videos/main.mp4
+        </div>
+        <!-- Drop-in when ready:
+        <video src="assets/videos/main.mp4" controls muted playsinline preload="none"></video>
+        -->
+        <figcaption>Method overview and representative results.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===================== Continuous task demos ===================== -->
+    <section class="section" id="tasks">
+      <h2>Continuous Task Demonstrations</h2>
+      <p>
+        After post-training, a single policy runs unattended over long horizons across four
+        contact-rich bimanual tasks, each requiring fine-grained contact control and recovery from
+        small execution errors.
+      </p>
+
+      <div class="grid grid-2">
+
+        <figure class="media">
+          <div class="placeholder" style="--ratio:16/9">
+            Continuous Laundry &mdash; 1 hour &nbsp;·&nbsp; assets/videos/laundry_1h.mp4
+          </div>
+          <!-- Drop-in when ready:
+          <video src="assets/videos/laundry_1h.mp4" autoplay muted loop playsinline preload="none"></video>
+          -->
+          <figcaption>
+            <strong>Laundry</strong> &mdash; T-shirt folding from randomized crumpled poses, running
+            continuously for one hour.
+          </figcaption>
+        </figure>
+
+        <figure class="media">
+          <div class="placeholder" style="--ratio:16/9">
+            Continuous Zip-Tie &mdash; 1 hour &nbsp;·&nbsp; assets/videos/ziptie_1h.mp4
+          </div>
+          <!-- Drop-in when ready:
+          <video src="assets/videos/ziptie_1h.mp4" autoplay muted loop playsinline preload="none"></video>
+          -->
+          <figcaption>
+            <strong>Zip-Tie</strong> &mdash; picking and threading a flexible zip tie at
+            millimeter-level precision, running continuously for one hour.
+          </figcaption>
+        </figure>
+
+        <figure class="media">
+          <div class="placeholder" style="--ratio:16/9">
+            Continuous Sachet &mdash; ×10 &nbsp;·&nbsp; assets/videos/sachet_x10.mp4
+          </div>
+          <!-- Drop-in when ready:
+          <video src="assets/videos/sachet_x10.mp4" autoplay muted loop playsinline preload="none"></video>
+          -->
+          <figcaption>
+            <strong>Sachet</strong> &mdash; threading sachets with high dexterity, ten consecutive
+            successful runs.
+          </figcaption>
+        </figure>
+
+        <figure class="media">
+          <div class="placeholder" style="--ratio:16/9">
+            Continuous Paper Box &mdash; ×10 &nbsp;·&nbsp; assets/videos/paperbox_x10.mp4
+          </div>
+          <!-- Drop-in when ready:
+          <video src="assets/videos/paperbox_x10.mp4" autoplay muted loop playsinline preload="none"></video>
+          -->
+          <figcaption>
+            <strong>Paper Box</strong> &mdash; long-horizon multi-stage box assembly from a flat
+            cutout, ten consecutive successful runs.
+          </figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- ===================== Generalization ===================== -->
+    <section class="section" id="generalization">
+      <h2>Generalization</h2>
+      <p>
+        We probe visual generalization of the Zip-Tie policy on cable ties with unseen appearances.
+        The policy threads colored cable ties it was never trained on, indicating that the learned
+        contact-rich skill transfers beyond the training distribution.
+      </p>
+      <figure class="media">
+        <div class="placeholder" style="--ratio:16/9">
+          Generalization &mdash; Colored Cable Ties &nbsp;·&nbsp; assets/videos/generalization_colored_ziptie.mp4
+        </div>
+        <!-- Drop-in when ready:
+        <video src="assets/videos/generalization_colored_ziptie.mp4" autoplay muted loop playsinline preload="none"></video>
+        -->
+        <figcaption>Threading colored cable ties of unseen appearance.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===================== Experiments / Results ===================== -->
+    <section class="section" id="results">
+      <h2>Experiments</h2>
+
+      <figure class="media">
+        <div class="placeholder" style="--ratio:16/6">
+          Result Figure 1 &nbsp;·&nbsp; assets/images/fig_iterative.png
+        </div>
+        <!-- Drop-in when ready:
+        <img src="assets/images/fig_iterative.png" alt="Iterative improvement across tasks">
+        -->
+        <figcaption>
+          <strong>Iterative improvement across tasks.</strong> Success rate (or throughput) at each
+          post-training iteration. PIVOT yields stable, monotonic gains over successive iterations on
+          all evaluated tasks.
+        </figcaption>
+      </figure>
+
+      <figure class="media">
+        <div class="placeholder" style="--ratio:16/6">
+          Result Figure 2 &nbsp;·&nbsp; assets/images/fig_comparison.png
+        </div>
+        <!-- Drop-in when ready:
+        <img src="assets/images/fig_comparison.png" alt="Policy-extraction comparison and ablations">
+        -->
+        <figcaption>
+          <strong>Policy-extraction comparison and ablations.</strong> Laundry throughput and
+          zip-tie success rate across post-training iterations, comparing TRFO against alternative
+          policy-extraction methods and ablation variants under the same data budget.
+        </figcaption>
+      </figure>
+
+      <figure class="media">
+        <div class="placeholder" style="--ratio:16/6">
+          Result Figure 3 &nbsp;·&nbsp; assets/images/fig_multitask.png
+        </div>
+        <!-- Drop-in when ready:
+        <img src="assets/images/fig_multitask.png" alt="Unified multi-task post-training">
+        -->
+        <figcaption>
+          <strong>Unified multi-task post-training.</strong> A single unified policy post-trained
+          with TRFO performs on par with per-task specialists across tasks, suggesting the objective
+          scales to diverse skill repertoires without per-task modification.
+        </figcaption>
+      </figure>
+
+    </section>
+
+  </main>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <p>Anonymous project page for double-blind review. Please do not distribute.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
