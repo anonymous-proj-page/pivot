@@ -26,23 +26,23 @@
   <nav class="nav">
     <div class="container nav-inner">
       <a href="#abstract">Abstract</a>
-      <a href="#overview">Overview</a>
       <a href="#tasks">Continuous Tasks</a>
       <a href="#generalization">Generalization</a>
+      <a href="#robustness">Robustness</a>
       <a href="#results">Results</a>
     </div>
   </nav>
 
   <main class="container">
 
-    <!-- ===================== Teaser (4-task flash montage) ===================== -->
-    <section class="section" id="teaser">
+    <!-- ===================== Main promo video ===================== -->
+    <section class="section" id="promo">
       <figure class="media">
         <div class="placeholder" style="--ratio:16/9">
-          4-Tasks Flash Montage &nbsp;·&nbsp; assets/videos/teaser.mp4
+          Main Promo Video &nbsp;·&nbsp; assets/videos/main.mp4
         </div>
         <!-- Drop-in when ready:
-        <video src="assets/videos/teaser.mp4" autoplay muted loop playsinline preload="none"></video>
+        <video src="assets/videos/main.mp4" controls muted playsinline preload="none"></video>
         -->
         <figcaption>
           <strong>PIVOT</strong> iteratively post-trains a flow-based VLA from real-world deployment
@@ -74,30 +74,6 @@
       <p class="keywords">
         <strong>Keywords:</strong> Real-World RL · Bimanual Manipulation · Post-Training
       </p>
-    </section>
-
-    <!-- ===================== Overview / Main video ===================== -->
-    <section class="section" id="overview">
-      <h2>Overview</h2>
-      <p>
-        PIVOT closes a heterogeneous experience loop: a deployed policy collects autonomous rollouts
-        and HG-DAgger-style human corrections, every episode is labeled with only a sparse terminal
-        outcome, and a distributional value expert estimates a per-transition advantage. TRFO then
-        reduces to ordinary flow-matching imitation on expert data while inducing a trust-region
-        reinforcement-learning update on autonomous rollouts &mdash; pulling the policy toward
-        high-value actions and repelling it from low-value ones within a region around a frozen
-        reference. A training-free temporal alignment relaxation stitches action chunks into smooth,
-        jerk-free motion at deployment.
-      </p>
-      <figure class="media">
-        <div class="placeholder" style="--ratio:16/9">
-          Main Video &nbsp;·&nbsp; assets/videos/main.mp4
-        </div>
-        <!-- Drop-in when ready:
-        <video src="assets/videos/main.mp4" controls muted playsinline preload="none"></video>
-        -->
-        <figcaption>Method overview and representative results.</figcaption>
-      </figure>
     </section>
 
     <!-- ===================== Continuous task demos ===================== -->
@@ -170,19 +146,78 @@
     <section class="section" id="generalization">
       <h2>Generalization</h2>
       <p>
-        We probe visual generalization of the Zip-Tie policy on cable ties with unseen appearances.
-        The policy threads colored cable ties it was never trained on, indicating that the learned
-        contact-rich skill transfers beyond the training distribution.
+        We probe visual generalization on objects with appearances never seen during training: the
+        Laundry policy folds unseen T-shirts, and the Zip-Tie policy threads colored cable ties.
+        Both indicate that the learned contact-rich skills transfer beyond the training distribution.
       </p>
-      <figure class="media">
-        <div class="placeholder" style="--ratio:16/9">
-          Generalization &mdash; Colored Cable Ties &nbsp;·&nbsp; assets/videos/generalization_colored_ziptie.mp4
-        </div>
-        <!-- Drop-in when ready:
-        <video src="assets/videos/generalization_colored_ziptie.mp4" autoplay muted loop playsinline preload="none"></video>
-        -->
-        <figcaption>Threading colored cable ties of unseen appearance.</figcaption>
-      </figure>
+
+      <div class="grid grid-2">
+
+        <figure class="media">
+          <div class="placeholder" style="--ratio:16/9">
+            Generalization &mdash; Unseen T-Shirts &nbsp;·&nbsp; assets/videos/generalization_tshirt.mp4
+          </div>
+          <!-- Drop-in when ready:
+          <video src="assets/videos/generalization_tshirt.mp4" autoplay muted loop playsinline preload="none"></video>
+          -->
+          <figcaption>
+            <strong>Unseen T-Shirts</strong> &mdash; folding T-shirts of unseen colors and patterns.
+          </figcaption>
+        </figure>
+
+        <figure class="media">
+          <div class="placeholder" style="--ratio:16/9">
+            Generalization &mdash; Colorful Zip Ties &nbsp;·&nbsp; assets/videos/generalization_ziptie.mp4
+          </div>
+          <!-- Drop-in when ready:
+          <video src="assets/videos/generalization_ziptie.mp4" autoplay muted loop playsinline preload="none"></video>
+          -->
+          <figcaption>
+            <strong>Colorful Zip Ties</strong> &mdash; threading cable ties of unseen colors.
+          </figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- ===================== Robustness ===================== -->
+    <section class="section" id="robustness">
+      <h2>Robustness</h2>
+      <p>
+        We stress-test the post-trained policies under two perturbation regimes: physical
+        disturbances applied mid-execution, and varied lighting conditions. The policies recover
+        from disturbances and remain reliable under lighting shifts, on both Laundry and Zip-Tie.
+      </p>
+
+      <div class="grid grid-2">
+
+        <figure class="media">
+          <div class="placeholder" style="--ratio:16/9">
+            Recovery &amp; Disturbance &nbsp;·&nbsp; assets/videos/robustness_recovery.mp4
+          </div>
+          <!-- Drop-in when ready:
+          <video src="assets/videos/robustness_recovery.mp4" autoplay muted loop playsinline preload="none"></video>
+          -->
+          <figcaption>
+            <strong>Recovery &amp; Disturbance</strong> &mdash; recovering from mid-execution
+            disturbances on Laundry and Zip-Tie.
+          </figcaption>
+        </figure>
+
+        <figure class="media">
+          <div class="placeholder" style="--ratio:16/9">
+            Lighting Variations &nbsp;·&nbsp; assets/videos/robustness_lighting.mp4
+          </div>
+          <!-- Drop-in when ready:
+          <video src="assets/videos/robustness_lighting.mp4" autoplay muted loop playsinline preload="none"></video>
+          -->
+          <figcaption>
+            <strong>Lighting Variations</strong> &mdash; robust execution under varied lighting on
+            Laundry and Zip-Tie.
+          </figcaption>
+        </figure>
+
+      </div>
     </section>
 
     <!-- ===================== Experiments / Results ===================== -->
