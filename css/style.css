@@ -198,6 +198,104 @@ body {
   .section p { text-align: left; }
 }
 
+/* ---------------- Result charts ---------------- */
+.figrow {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.chart-panel {
+  min-width: 0;          /* allow flex children to shrink below content size */
+}
+
+.chart-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  font-family: var(--sans);
+}
+
+/* SVG text roles */
+.chart-svg .ptitle { font-size: 12px; font-weight: 700; fill: var(--ink); }
+.chart-svg .ylabel { font-size: 10px; fill: #333; }
+.chart-svg .tick   { font-size: 9px;  fill: #333; }
+.chart-svg .vlabel { font-size: 10px; }
+
+/* Legend block (fig2 / fig3) */
+.chart-legend {
+  flex: 0 0 auto;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 4px;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.leg-row { display: flex; align-items: center; gap: 7px; }
+
+.leg-swatch {
+  width: 15px;
+  height: 11px;
+  flex: 0 0 auto;
+  border: 1px solid;
+  border-radius: 1px;
+}
+
+.leg-label { color: #333; white-space: nowrap; }
+
+.leg-note {
+  margin-top: 4px;
+  font-size: 10.5px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* --- Bar-growth animation (triggered by .run on .figrow) --- */
+.chart-svg .bar {
+  transform: scaleY(0);
+  transform-box: fill-box;
+  transform-origin: bottom;
+  transition: transform 0.52s cubic-bezier(0.22, 0.7, 0.25, 1);
+}
+.chart-svg .err,
+.chart-svg .vlabel {
+  opacity: 0;
+  transition: opacity 0.28s ease;
+}
+.figrow.run .chart-svg .bar { transform: scaleY(1); }
+.figrow.run .chart-svg .err,
+.figrow.run .chart-svg .vlabel { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .chart-svg .bar { transform: none; transition: none; }
+  .chart-svg .err,
+  .chart-svg .vlabel { opacity: 1; transition: none; }
+}
+
+/* Stack panels vertically on narrow screens */
+@media (max-width: 720px) {
+  .figrow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+  .chart-panel { flex: 1 1 auto !important; }
+  .chart-svg { max-width: 440px; margin: 0 auto; }
+  .chart-legend {
+    flex-flow: row wrap;
+    justify-content: center;
+    align-self: stretch;
+    gap: 6px 16px;
+    padding-left: 0;
+  }
+  .leg-note { flex-basis: 100%; text-align: center; margin-top: 0; }
+}
+
 /* ---------------- Footer ---------------- */
 .footer {
   padding: 32px 0 48px;

@@ -220,12 +220,7 @@
       <h2>Experiments</h2>
 
       <figure class="media">
-        <div class="placeholder" style="--ratio:16/6">
-          Result Figure 1 &nbsp;·&nbsp; assets/images/fig_iterative.png
-        </div>
-        <!-- Drop-in when ready:
-        <img src="assets/images/fig_iterative.png" alt="Iterative improvement across tasks">
-        -->
+        <div class="figrow" data-fig="fig1"></div>
         <figcaption>
           <strong>Iterative improvement across tasks.</strong> Success rate (or throughput) at each
           post-training iteration. PIVOT yields stable, monotonic gains over successive iterations on
@@ -234,12 +229,7 @@
       </figure>
 
       <figure class="media">
-        <div class="placeholder" style="--ratio:16/6">
-          Result Figure 2 &nbsp;·&nbsp; assets/images/fig_comparison.png
-        </div>
-        <!-- Drop-in when ready:
-        <img src="assets/images/fig_comparison.png" alt="Policy-extraction comparison and ablations">
-        -->
+        <div class="figrow" data-fig="fig2"></div>
         <figcaption>
           <strong>Policy-extraction comparison and ablations.</strong> Laundry throughput and
           zip-tie success rate across post-training iterations, comparing TRFO against alternative
@@ -248,12 +238,7 @@
       </figure>
 
       <figure class="media">
-        <div class="placeholder" style="--ratio:16/6">
-          Result Figure 3 &nbsp;·&nbsp; assets/images/fig_multitask.png
-        </div>
-        <!-- Drop-in when ready:
-        <img src="assets/images/fig_multitask.png" alt="Unified multi-task post-training">
-        -->
+        <div class="figrow" data-fig="fig3"></div>
         <figcaption>
           <strong>Unified multi-task post-training.</strong> A single unified policy post-trained
           with TRFO performs on par with per-task specialists across tasks, suggesting the objective
@@ -271,6 +256,9 @@
       <p>Anonymous project page for double-blind review. Please do not distribute.</p>
     </div>
   </footer>
+
+  <!-- Self-contained inline charts (no external resources). -->
+  <script src="js/charts.js" defer></script>
 
 </body>
 </html>
