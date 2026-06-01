@@ -136,6 +136,78 @@ body {
   font-size: 16px;
 }
 
+/* ---------------- Approach / epigraph ---------------- */
+.epigraph {
+  text-align: center;
+  padding: 56px 0 48px;
+}
+
+.quote {
+  margin: 0 auto 26px;
+  max-width: 60ch;
+}
+
+.quote:last-of-type { margin-bottom: 30px; }
+
+.epigraph .quote p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(20px, 2.6vw, 25px);
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 0 0 10px;
+  max-width: none;
+  text-align: center;
+}
+
+.quote cite {
+  display: block;
+  font-style: normal;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
+.quote cite span { font-style: italic; }
+
+.epigraph .lede {
+  max-width: 60ch;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.epigraph .keywords { margin-top: 18px; }
+
+/* ---------------- Task hook (highlighted laundry) ---------------- */
+.hook {
+  text-align: center;
+  margin: 8px 0 34px;
+}
+
+.hook .hook-q {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 0 auto 2px;
+  max-width: 40ch;
+  text-align: center;
+}
+
+.hook .hook-sub {
+  font-size: 15px;
+  color: var(--muted);
+  margin: 0 auto 16px;
+  max-width: 50ch;
+  text-align: center;
+}
+
+.hook .media { margin-top: 0; }
+
 /* ---------------- Media + placeholders ---------------- */
 .media {
   margin: 24px 0 0;
