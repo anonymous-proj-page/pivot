@@ -98,22 +98,10 @@
       <div class="grid grid-2">
 
         <figure class="media">
-          <video src="assets/videos/fs-2_mask.mp4" autoplay muted loop playsinline preload="none"></video>
+          <video src="assets/videos/paperbox.mp4" autoplay muted loop playsinline preload="none"></video>
           <figcaption>
-            <strong>Laundry</strong> &mdash; continuous folding across four different garments.
-          </figcaption>
-        </figure>
-
-        <figure class="media">
-          <div class="placeholder" style="--ratio:16/9">
-            Continuous Zip-Tie &mdash; 1 hour &nbsp;·&nbsp; assets/videos/ziptie_1h.mp4
-          </div>
-          <!-- Drop-in when ready:
-          <video src="assets/videos/ziptie_1h.mp4" autoplay muted loop playsinline preload="none"></video>
-          -->
-          <figcaption>
-            <strong>Zip-Tie</strong> &mdash; picking and threading a flexible zip tie at
-            millimeter-level precision, running continuously for one hour.
+            <strong>Paper Box</strong> &mdash; long-horizon multi-stage box assembly from a flat
+            cutout, running autonomously over many consecutive runs (shown at 20&times; speed).
           </figcaption>
         </figure>
 
@@ -126,10 +114,17 @@
         </figure>
 
         <figure class="media">
-          <video src="assets/videos/paperbox.mp4" autoplay muted loop playsinline preload="none"></video>
+          <video src="assets/videos/zt.mp4" autoplay muted loop playsinline preload="none"></video>
           <figcaption>
-            <strong>Paper Box</strong> &mdash; long-horizon multi-stage box assembly from a flat
-            cutout, running autonomously over many consecutive runs (shown at 20&times; speed).
+            <strong>Zip-Tie</strong> &mdash; picking and threading a flexible zip tie at
+            millimeter-level precision.
+          </figcaption>
+        </figure>
+
+        <figure class="media">
+          <video src="assets/videos/fs-2_mask.mp4" autoplay muted loop playsinline preload="none"></video>
+          <figcaption>
+            <strong>Laundry</strong> &mdash; continuous folding across four different garments.
           </figcaption>
         </figure>
 
@@ -145,7 +140,7 @@
         Both indicate that the learned contact-rich skills transfer beyond the training distribution.
       </p>
 
-      <div class="grid grid-2">
+      <div class="grid grid-1">
 
         <figure class="media">
           <div class="placeholder" style="--ratio:16/9">
@@ -173,15 +168,15 @@
     <section class="section" id="robustness">
       <h2>Robustness</h2>
       <p>
-        We stress-test the post-trained Laundry policy along four axes: resisting physical
-        disturbances from a human, recognizing and re-doing a poor fold, recovering from small
-        execution slips mid-fold, and staying reliable under varied lighting.
+        We stress-test the post-trained Laundry policy along three axes: resisting physical
+        disturbances from a human, recognizing and re-doing a poor fold, and recovering from small
+        execution slips mid-fold.
       </p>
 
-      <div class="grid grid-2">
+      <div class="grid grid-1">
 
         <figure class="media">
-          <video src="assets/videos/disturb_mask.mp4" autoplay muted loop playsinline preload="none"></video>
+          <video src="assets/videos/disturb_mask.mp4#t=0.1" muted loop playsinline preload="metadata"></video>
           <figcaption>
             <strong>Human Disturbance</strong> &mdash; folding continues while a person physically
             perturbs the cloth and the arms mid-task.
@@ -189,7 +184,7 @@
         </figure>
 
         <figure class="media">
-          <video src="assets/videos/self-corr_mask.mp4" autoplay muted loop playsinline preload="none"></video>
+          <video src="assets/videos/self-corr_mask.mp4#t=0.1" muted loop playsinline preload="metadata"></video>
           <figcaption>
             <strong>Self-Correction</strong> &mdash; when a fold comes out poorly, the policy
             notices and re-folds until the result is clean.
@@ -197,23 +192,10 @@
         </figure>
 
         <figure class="media">
-          <video src="assets/videos/err-recov_mask.mp4" autoplay muted loop playsinline preload="none"></video>
+          <video src="assets/videos/err-recov_mask.mp4#t=0.1" muted loop playsinline preload="metadata"></video>
           <figcaption>
             <strong>Error Recovery</strong> &mdash; after a small execution slip mid-fold, the
             policy recovers and retries.
-          </figcaption>
-        </figure>
-
-        <figure class="media">
-          <div class="placeholder" style="--ratio:16/9">
-            Lighting Variations &nbsp;·&nbsp; assets/videos/robustness_lighting.mp4
-          </div>
-          <!-- Drop-in when ready:
-          <video src="assets/videos/robustness_lighting.mp4" autoplay muted loop playsinline preload="none"></video>
-          -->
-          <figcaption>
-            <strong>Lighting Variations</strong> &mdash; reliable folding under varied lighting
-            conditions.
           </figcaption>
         </figure>
 
