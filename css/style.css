@@ -242,6 +242,132 @@ body {
   line-height: 1.6;
 }
 
+/* ---------------- Custom video player ---------------- */
+.player {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  line-height: 0;
+}
+
+.player video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.vc {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 12px 10px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0));
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  line-height: normal;
+}
+
+/* Reveal on hover, while scrubbing, or whenever the video is paused. */
+.player:hover .vc,
+.player.is-scrubbing .vc,
+.player.is-paused .vc,
+.player:focus-within .vc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vc-btn {
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vc-btn:hover { background: rgba(255, 255, 255, 0.18); }
+.vc-btn svg { width: 100%; height: 100%; fill: currentColor; }
+
+.vc-track {
+  position: relative;
+  flex: 1 1 auto;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  touch-action: none;
+}
+
+/* The visible rail is a thin bar centered in the taller hit area. */
+.vc-track::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.vc-buffered,
+.vc-played {
+  position: absolute;
+  left: 0;
+  height: 4px;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.vc-buffered { background: rgba(255, 255, 255, 0.35); width: 0; }
+.vc-played { background: var(--accent); width: 0; }
+
+.vc-thumb {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  border-radius: 50%;
+  background: #fff;
+  transform: translateY(-50%) scale(0);
+  transition: transform 0.12s ease;
+  pointer-events: none;
+}
+
+.vc-track:hover .vc-thumb,
+.player.is-scrubbing .vc-thumb { transform: translateY(-50%) scale(1); }
+
+.vc-track:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.vc-time {
+  flex: 0 0 auto;
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .vc-time { font-size: 11px; }
+  .vc { gap: 7px; }
+}
+
 .media figcaption {
   margin-top: 12px;
   font-size: 15px;

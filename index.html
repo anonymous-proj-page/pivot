@@ -87,12 +87,7 @@
         <p class="hook-q">How many T-shirts can you fold in an hour?</p>
         <p class="hook-sub">Ours folds them one after another &mdash; for a full hour, nonstop.</p>
         <figure class="media">
-          <div class="placeholder" style="--ratio:16/9">
-            Continuous Laundry &mdash; 1 hour &nbsp;·&nbsp; assets/videos/laundry_1h.mp4
-          </div>
-          <!-- Drop-in when ready:
-          <video src="assets/videos/laundry_1h.mp4" autoplay muted loop playsinline preload="none"></video>
-          -->
+          <video src="assets/videos/fs.mp4" autoplay muted loop playsinline preload="none"></video>
           <figcaption>
             <strong>Laundry</strong> &mdash; T-shirt folding from randomized crumpled poses, running
             continuously for one hour without intervention.
@@ -103,12 +98,7 @@
       <div class="grid grid-2">
 
         <figure class="media">
-          <div class="placeholder" style="--ratio:16/9">
-            Laundry &mdash; 4 garments &nbsp;·&nbsp; assets/videos/laundry_4garments.mp4
-          </div>
-          <!-- Drop-in when ready:
-          <video src="assets/videos/laundry_4garments.mp4" autoplay muted loop playsinline preload="none"></video>
-          -->
+          <video src="assets/videos/fs-2_mask.mp4" autoplay muted loop playsinline preload="none"></video>
           <figcaption>
             <strong>Laundry</strong> &mdash; continuous folding across four different garments.
           </figcaption>
@@ -128,12 +118,7 @@
         </figure>
 
         <figure class="media">
-          <div class="placeholder" style="--ratio:16/9">
-            Sachet &mdash; 4 pairs &nbsp;·&nbsp; assets/videos/sachet_4pairs.mp4
-          </div>
-          <!-- Drop-in when ready:
-          <video src="assets/videos/sachet_4pairs.mp4" autoplay muted loop playsinline preload="none"></video>
-          -->
+          <video src="assets/videos/sa.mp4" autoplay muted loop playsinline preload="none"></video>
           <figcaption>
             <strong>Sachet</strong> &mdash; threading sachets with high dexterity, succeeding across
             four different sachet pairs.
@@ -175,12 +160,7 @@
         </figure>
 
         <figure class="media">
-          <div class="placeholder" style="--ratio:16/9">
-            Generalization &mdash; Colorful Zip Ties &nbsp;·&nbsp; assets/videos/generalization_ziptie.mp4
-          </div>
-          <!-- Drop-in when ready:
-          <video src="assets/videos/generalization_ziptie.mp4" autoplay muted loop playsinline preload="none"></video>
-          -->
+          <video src="assets/videos/zt-gen.mp4" autoplay muted loop playsinline preload="none"></video>
           <figcaption>
             <strong>Colorful Zip Ties</strong> &mdash; threading cable ties of unseen colors.
           </figcaption>
@@ -201,12 +181,7 @@
       <div class="grid grid-2">
 
         <figure class="media">
-          <div class="placeholder" style="--ratio:16/9">
-            Human Disturbance &nbsp;·&nbsp; assets/videos/robustness_disturbance.mp4
-          </div>
-          <!-- Drop-in when ready:
-          <video src="assets/videos/robustness_disturbance.mp4" autoplay muted loop playsinline preload="none"></video>
-          -->
+          <video src="assets/videos/disturb_mask.mp4" autoplay muted loop playsinline preload="none"></video>
           <figcaption>
             <strong>Human Disturbance</strong> &mdash; folding continues while a person physically
             perturbs the cloth and the arms mid-task.
@@ -214,12 +189,7 @@
         </figure>
 
         <figure class="media">
-          <div class="placeholder" style="--ratio:16/9">
-            Self-Correction &nbsp;·&nbsp; assets/videos/robustness_refold.mp4
-          </div>
-          <!-- Drop-in when ready:
-          <video src="assets/videos/robustness_refold.mp4" autoplay muted loop playsinline preload="none"></video>
-          -->
+          <video src="assets/videos/self-corr_mask.mp4" autoplay muted loop playsinline preload="none"></video>
           <figcaption>
             <strong>Self-Correction</strong> &mdash; when a fold comes out poorly, the policy
             notices and re-folds until the result is clean.
@@ -227,12 +197,7 @@
         </figure>
 
         <figure class="media">
-          <div class="placeholder" style="--ratio:16/9">
-            Error Recovery &nbsp;·&nbsp; assets/videos/robustness_recovery.mp4
-          </div>
-          <!-- Drop-in when ready:
-          <video src="assets/videos/robustness_recovery.mp4" autoplay muted loop playsinline preload="none"></video>
-          -->
+          <video src="assets/videos/err-recov_mask.mp4" autoplay muted loop playsinline preload="none"></video>
           <figcaption>
             <strong>Error Recovery</strong> &mdash; after a small execution slip mid-fold, the
             policy recovers and retries.
@@ -299,6 +264,8 @@
 
   <!-- Self-contained inline charts (no external resources). -->
   <script src="js/charts.js" defer></script>
+  <!-- Custom lightweight video controls (play/pause, scrub, mute, fullscreen). -->
+  <script src="js/video.js" defer></script>
 
 </body>
 </html>
