@@ -95,15 +95,16 @@
         </figure>
       </div>
 
-      <div class="grid grid-2">
+      <!-- Paper Box: enlarged to full width, matching the Laundry hook -->
+      <figure class="media">
+        <video src="assets/videos/paperbox.mp4" autoplay muted loop playsinline preload="none"></video>
+        <figcaption>
+          <strong>Paper Box</strong> &mdash; long-horizon multi-stage box assembly from a flat
+          cutout, running autonomously over many consecutive runs (shown at 20&times; speed).
+        </figcaption>
+      </figure>
 
-        <figure class="media">
-          <video src="assets/videos/paperbox.mp4" autoplay muted loop playsinline preload="none"></video>
-          <figcaption>
-            <strong>Paper Box</strong> &mdash; long-horizon multi-stage box assembly from a flat
-            cutout, running autonomously over many consecutive runs (shown at 20&times; speed).
-          </figcaption>
-        </figure>
+      <div class="grid grid-2">
 
         <figure class="media">
           <video src="assets/videos/sa.mp4" autoplay muted loop playsinline preload="none"></video>
@@ -118,13 +119,6 @@
           <figcaption>
             <strong>Zip-Tie</strong> &mdash; picking and threading a flexible zip tie at
             millimeter-level precision.
-          </figcaption>
-        </figure>
-
-        <figure class="media">
-          <video src="assets/videos/fs-2_mask.mp4" autoplay muted loop playsinline preload="none"></video>
-          <figcaption>
-            <strong>Laundry</strong> &mdash; continuous folding across four different garments.
           </figcaption>
         </figure>
 
@@ -163,12 +157,21 @@
     <section class="section" id="robustness">
       <h2>Robustness</h2>
       <p>
-        We stress-test the post-trained Laundry policy along three axes: resisting physical
-        disturbances from a human, recognizing and re-doing a poor fold, and recovering from small
-        execution slips mid-fold.
+        We stress-test our post-trained policies against unexpected mishaps. The Paper Box policy
+        makes robust corrections to small accidents mid-assembly, while the Laundry policy resists
+        physical disturbances from a human, recognizes and re-does a poor fold, and recovers from
+        small execution slips mid-fold.
       </p>
 
       <div class="grid grid-1">
+
+        <figure class="media">
+          <video src="assets/videos/ur-rob.mp4" autoplay muted loop playsinline preload="none"></video>
+          <figcaption>
+            <strong>Paper Box</strong> &mdash; the policy makes robust corrections to small
+            accidents that occur during box assembly, keeping the fold on track.
+          </figcaption>
+        </figure>
 
         <figure class="media">
           <video src="assets/videos/disturb_mask.mp4#t=0.1" muted loop playsinline preload="metadata"></video>
@@ -177,6 +180,10 @@
             perturbs the cloth and the arms mid-task.
           </figcaption>
         </figure>
+
+      </div>
+
+      <div class="grid grid-2">
 
         <figure class="media">
           <video src="assets/videos/self-corr_mask.mp4#t=0.1" muted loop playsinline preload="metadata"></video>
